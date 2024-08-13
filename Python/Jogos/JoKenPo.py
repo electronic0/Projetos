@@ -1,20 +1,28 @@
 from random import choice
 from time import sleep
-print('Bora pedra, papel e tesoura?')
-t = 0
+
 while True:
-    t += 1
-    e = choice(['pedra', 'papel', 'tesoura'])
-    i = str(input('Qual é sua escolha? [Pedra/Papel/Tesoura]: ')).lower().strip()
-    print('JO')
+    escolha = ['pedra', 'papel', 'tesoura']
+    computador = choice(escolha)
+    jogador = None
+    while jogador not in escolha:
+        jogador = str(input('Pedra, Papel ou Tesoura? ')).lower().strip()
     sleep(1)
-    print('KEN')
+    print('JO', end = ' ')
+    sleep(1)
+    print('KEN', end = ' ')
     sleep(1)
     print('PO!')
-    if i == 'pedra' and e == 'tesoura' or i == 'papel' and e == 'pedra' or i == 'tesoura' and e == 'papel':
-        break
-    elif e == 'pedra' and i == 'tesoura' or e == 'papel' and i == 'pedra' or e == 'tesoura' and i == 'papel':
-        print(f'Perdeu! Eu escolhi {e}. Vamo denovo? ')
+    print(f'Computador: {computador.capitalize()}')
+    print(f'Jogador: {jogador.capitalize()}')
+    sleep(1)
+    if jogador == 'pedra' and computador == 'tesoura' or jogador == 'papel' and computador == 'pedra' or jogador == 'tesoura' and computador == 'papel':
+        print('Você ganhou!')
+    elif computador == 'pedra' and jogador == 'tesoura' or computador == 'papel' and jogador == 'pedra' or computador == 'tesoura' and jogador == 'papel':
+        print('Você perdeu!')
     else:
-        print('Empate! Vamo denovo.')
-print(f'Parebens! Você ganhou de min na {t}° tentativa. Eu escolhi {e}.')
+        print('Empate!')
+    continuação = str(input('Deseja continuar? [S/N]: ')).lower().strip()[0]
+    if continuação == 'n':
+        break
+print('Volte sempre!')

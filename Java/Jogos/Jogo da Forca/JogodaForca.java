@@ -58,21 +58,21 @@ public class JogodaForca {
 
             palavraAdivinhado = true;
 
-			for (char caractere: palavraEscolhida) {
-				if (caractere == '_') {
-					palavraAdivinhado = false;
-					break;
-				}
-			}
+            for (char caractere: palavraEscolhida) {
+                if (caractere == '_') {
+                    palavraAdivinhado = false;
+                    break;
+                }
+            }
 
-			System.out.println(desenho.desenharForca(erros));
+            System.out.println(desenho.desenharForca(erros));
         }
 
         if (palavraAdivinhado) {
             System.out.println("Parabens! Você adivinhou a palavra " + palavra);
         } else {
             System.out.println("Que pena, acabou as tentativas.");
-			System.out.println("A palavra era " + palavra);
+            System.out.println("A palavra era " + palavra);
         }
 
         entrada.close();
